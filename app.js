@@ -18,16 +18,16 @@ app.post('/guess', (req, res) => {
     console.log(req.body.guess);
     // process this guess
     // note: reg plate length is always 7
-    var guess = req.body.guess;
+    var guess = Array.from(req.body.guess);
     var todaysReg = Array.from("CU57ABC") // TODO make answer vary
     var hint = [0,0,0,0,0,0,0] // blank hint to write to
     // green pass
     for (var i = 0; i < 7; i++) {
-        indexof = todaysReg.indexOf(guess[i]);
-        if (indexof == i) {
+        if (guess[i] == todaysReg[i]) {
             hint[i] = 2
-            // remove letter from answer to prevent double counting
-            todaysReg[indexof] = '#'
+            // remove letter from answer and guess to prevent double counting
+            todaysReg[i] = '#'
+            guess[i] = '_'
         }
     }
     // yellow pass
@@ -35,12 +35,13 @@ app.post('/guess', (req, res) => {
         indexof = todaysReg.indexOf(guess[i]);
         if (indexof != -1) {
             hint[i] = 1
-            // remove letter from answer to prevent double counting
+            // remove letter from answer and guess to prevent double counting
             todaysReg[indexof] = '#'
+            guess[i] = '_'
         }
     }
     // remaining is yellow
-    res.send(hint.join());
+    res.send(hint.join(''));
 })
 
 app.get('/style.css', (req, res) => {
