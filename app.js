@@ -17,8 +17,30 @@ app.get('/', (req, res) => {
 app.post('/guess', (req, res) => {
     console.log(req.body.guess);
     // process this guess
-
-    res.send("zer0-day exploit acquired")
+    // note: reg plate length is always 7
+    var guess = req.body.guess;
+    var todaysReg = Array.from("CU57ABC") // TODO make answer vary
+    var hint = [0,0,0,0,0,0,0] // blank hint to write to
+    // green pass
+    for (var i = 0; i < 7; i++) {
+        indexof = todaysReg.indexOf(guess[i]);
+        if (indexof == i) {
+            hint[i] = 2
+            // remove letter from answer to prevent double counting
+            todaysReg[indexof] = '#'
+        }
+    }
+    // yellow pass
+    for (var i = 0; i < 7; i++) {
+        indexof = todaysReg.indexOf(guess[i]);
+        if (indexof != -1) {
+            hint[i] = 1
+            // remove letter from answer to prevent double counting
+            todaysReg[indexof] = '#'
+        }
+    }
+    // remaining is yellow
+    res.send(hint.join());
 })
 
 app.get('/style.css', (req, res) => {
