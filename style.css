@@ -7,6 +7,10 @@ body {
 	line-height: 1.2rem;
 	color: #DDDDDD;
 	background-color: #121213;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .title {
@@ -17,3 +21,49 @@ h1 {
 	font-size: 3rem;
 	line-height: 1.6rem
 }
+
+.game{
+    height:70%;
+    max-height: 100%;
+    width:40%;
+    margin: auto;
+    position:absolute;
+    text-overflow: visible;
+    background-color: aqua;
+    padding:0%;
+}
+.box{
+    background-color: pink;
+
+    width: 12%;
+    height: 88%;
+    max-width: 12%;
+    min-height: 88%;
+    min-width: 12%;
+    max-height: 88%;
+    position:relative;
+    display:inline-block ;
+    text-overflow: visible;
+    vertical-align: middle;
+    margin-top: 1%;
+    margin-left:0.1em;
+    text-align: center;
+  }
+  .game-row{
+    background-color: red;
+    width: 80%;
+    position:relative;
+    height:14%;
+    margin:auto;
+    padding: 0%;
+    text-align: center;
+    vertical-align:middle;
+  }
+  
+  .submitted-letter{
+    font-size: 2em;
+    text-align: center;
+    position: relative;
+    margin:auto auto;
+
+  }

@@ -9,7 +9,6 @@ currentLetters = ""
 document.onkeydown = function(evt) {
     evt = evt || window.event;
     var char = evt.key;
-    //console.log(char.toUpperCase(),currentLetter,currentLetters, "ABCDEFGHIJKLMNOPQRSTUVWXYZ".includes(char.toUpperCase()))
     if(char=="Backspace" && currentLetter>0){
         currentDiv = document.getElementById("box"+currentRow.toString()+currentLetter.toString())
         currentDiv.innerHTML="";
@@ -20,8 +19,6 @@ document.onkeydown = function(evt) {
         
         currentLetters+=char.toUpperCase();
         currentDiv = document.getElementById("box"+currentRow.toString()+currentLetter.toString())
-        console.log(currentDiv);
-        //console.log("Box"+currentRow.toString()+currentLetter.toString())
         currentDiv.innerHTML="<p class='submitted-letter'>"+char.toUpperCase()+"</p>";
         currentLetter+=1;
         currentLetter = Math.min(currentLetter,7)
