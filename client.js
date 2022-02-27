@@ -1,7 +1,3 @@
-console.log("Loaded client.js");
-
-//load('http://localhost:5000/guess', {'guess': 'CU57ABC'}, console.log)
-
 const evaluatorEndpoint = 'http://localhost:5000/guess';
 
 var currentRow=1;
@@ -35,14 +31,11 @@ document.onkeydown = function(evt) {
 };
 
 function showHint(hintString) {
-    console.log("hint string");
-    console.log(hintString);
     // states contains class names to assign to boxes
     var states = ['incorrect', 'present', 'correct'];
     // change class of each cell for css
     for (var i = 1; i < 8; i++) {
         var boxname = "box"+(currentRow-1).toString()+i.toString();
-        console.log(boxname,hintString[i-1]);
         var box = document.getElementById(boxname);
         box.classList.add(states[hintString[i-1]]);
     }

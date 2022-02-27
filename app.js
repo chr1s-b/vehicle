@@ -6,6 +6,12 @@ const app = express()
 var bodyParser = require('body-parser')
 const port = process.env.PORT || 3000;
 
+const regs = ["SL08CFO","MA66XME","KP65NNT","WU63YZV","AE51VRR","OY20ZKS","YX67VDJ","YT70FON","GJ13BUE","KW69JTU","VE60JYY","YG60MFN","YE18TBV","DU64MYY","GN03UYG","KS09FJF","NL03EHM","GL11ZBP"]
+
+function selectReg() {
+    var day = Math.floor(+new Date() / 86400);
+    return regs[day % regs.length];
+}
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -19,7 +25,7 @@ app.post('/guess', (req, res) => {
     // process this guess
     // note: reg plate length is always 7
     var guess = Array.from(req.body.guess);
-    var todaysReg = Array.from("CU57ABC") // TODO make answer vary
+    var todaysReg = Array.from(selectReg())
     var hint = [0,0,0,0,0,0,0] // blank hint to write to
     // green pass
     for (var i = 0; i < 7; i++) {
