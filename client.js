@@ -111,8 +111,7 @@ function load(url, data, callback) {
 
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Access-Control-Allow-Origin','*') // idgaf ()
-    //xhr.setRequestHeader('Access-Control-Allow-Origin','http://dailyvehicle.tech')
+    xhr.setRequestHeader('Access-Control-Allow-Origin','*') // i care
 
     xhr.send(JSON.stringify(data));
 }
