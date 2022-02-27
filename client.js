@@ -1,4 +1,5 @@
-const evaluatorEndpoint = 'http://localhost:5000/guess';
+const evaluatorEndpoint = 'http://vehiclegame.herokuapp.com/guess';
+const imgEndpoint='http://vehiclegame.herokuapp.com/image'
 
 var currentRow=1;
 currentLetter=1;
@@ -29,6 +30,7 @@ document.onkeydown = function(evt) {
         if (currentRow == 7) {
             // lost
             endmsg.innerHTML = "Nope. Score: 0"
+            getImg();
             displayPopup()
         }
     }
@@ -67,8 +69,34 @@ function closeoverlay() {
     popup.style.display = "none";
 }
 
+function createShareString(){
+    s=""
+    for(let i =1;i<7;i++){
+        for(let j=1;j<8;j++){
+            u = document.getElementById("box"+i.toString()+j.toString()).classList;
+            if(u.contains("correct")){
+                s+="🟩"
+            }else if (u.contains("present")){
+                s+="🟨"
+            }else if (u.contains("incorrect")){
+                s+="⬛"
+            }else{
+                return ("www.dailyvehicle.tech  "+(i-1).toString()+"/6 \n"+s)
+            }
+        }
+        s+="\n"
+    }
+    if(s.includes("🟩🟩🟩🟩🟩🟩🟩")){ // we found the correct number plate
+        return ("www.dailyvehicle.tech  "+(6).toString()+"/6 \n"+s)
+    } 
+    //the number palte was not guessed
+    return ("www.dailyvehicle.tech  X/6 \n"+s)
+}
+
+
 function sharetoclipboard() {
-    console.log("pain");
+    console.log(createShareString())
+    navigator.clipboard.writeText(createShareString())
 }
 
 function load(url, data, callback) {
@@ -83,6 +111,13 @@ function load(url, data, callback) {
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(data));
+}
+function loadImageToPopUp(s){
+    imgEl = document.getElementById("rewardImg");
+    imgEl.src=s;
+}
+function getImg(){
+    imgUrl = load(imgEndpoint, {'image': "10"}, loadImageToPopUp)
 }
 
 function doTimer(timerelement) {
@@ -99,3 +134,5 @@ function doTimer(timerelement) {
         timerelement.innerHTML = hours + ":" + minutes + ":" + seconds;
     }, 1000);
 }
+
+
