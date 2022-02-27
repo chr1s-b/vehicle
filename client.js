@@ -1,5 +1,5 @@
-const evaluatorEndpoint = 'http://www.dailyvehicle.tech/guess';
-const imgEndpoint='http://www.dailyvehicle.tech/image'
+const evaluatorEndpoint = 'https://vehiclegame.herokuapp.com/guess';
+const imgEndpoint='https://vehiclegame.herokuapp.com/image'
 
 var currentRow=1;
 currentLetter=1;
@@ -110,7 +110,7 @@ function load(url, data, callback) {
 
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Access-Control-Allow-Origin','*') // i care alot
+    xhr.setRequestHeader('Access-Control-Allow-Origin','*') // i care
 
     xhr.send(JSON.stringify(data));
 }
