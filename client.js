@@ -53,6 +53,7 @@ function showHint(hintString) {
         // trigger popup
         var endmsg = document.getElementById("endmsg");
         endmsg.innerHTML = "Yep. Score: "+(7-(currentRow-1)).toString();
+        getImg();
         displayPopup()
     }
 }
