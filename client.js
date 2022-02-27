@@ -61,6 +61,7 @@ function displayPopup() {
     // show popup at end of game
     var popup = document.getElementById("overlay");
     popup.style.display = "block";
+    doTimer(document.getElementById("countdown"));
 }
 
 function closeoverlay() {
@@ -84,4 +85,19 @@ function load(url, data, callback) {
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(data));
+}
+
+function doTimer(timerelement) {
+    var countDownDate = new Date("Jan 1, 2000 00:00:00").getTime();
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var hours = 24 + Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = 60 + Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = 60 + Math.floor((distance % (1000 * 60)) / 1000);
+
+        timerelement.innerHTML = hours + ":" + minutes + ":" + seconds;
+    }, 1000);
 }
