@@ -46,13 +46,11 @@ function showHint(hintString) {
         box.classList.add(states[hintString[i-1]]);
     }
 
-    if (hintString == [2,2,2,2,2,2,2]) {
+    if (hintString == "2222222") {
         // all correct, end game
-        console.log("End game. Score:")
-        console.log(currentRow-1)
         // trigger popup
         var endmsg = document.getElementById("endmsg");
-        endmsg.innerHTML = currentLetters+"<br>Score: "+(currentRow-1).toString();
+        endmsg.innerHTML = "Yep. Score: "+(7-(currentRow-1)).toString();
         displayPopup()
     }
 }
