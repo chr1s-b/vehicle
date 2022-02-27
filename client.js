@@ -25,6 +25,12 @@ document.onkeydown = function(evt) {
         load(evaluatorEndpoint, {'guess': currentLetters}, showHint);
         currentLetters="";
         currentLetter=1;
+        // check for lose condition
+        if (currentRow == 7) {
+            // lost
+            endmsg.innerHTML = "Nope. Score: 0"
+            displayPopup()
+        }
     }
 
     
@@ -45,7 +51,25 @@ function showHint(hintString) {
         console.log("End game. Score:")
         console.log(currentRow-1)
         // trigger popup
+        var endmsg = document.getElementById("endmsg");
+        endmsg.innerHTML = currentLetters+"<br>Score: "+(currentRow-1).toString();
+        displayPopup()
     }
+}
+
+function displayPopup() {
+    // show popup at end of game
+    var popup = document.getElementById("overlay");
+    popup.style.display = "block";
+}
+
+function closeoverlay() {
+    var popup = document.getElementById("overlay");
+    popup.style.display = "none";
+}
+
+function sharetoclipboard() {
+    console.log("pain");
 }
 
 function load(url, data, callback) {
