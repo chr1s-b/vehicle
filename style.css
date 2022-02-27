@@ -53,13 +53,6 @@ h1 {
     display: table-cell;  
   }
   
-  
-@media (orientation:portrait) {
-    .box {
-        height: 12vw;
-    }
-}
-
 #overlay {
     position: fixed;
     display: none;
@@ -107,4 +100,11 @@ h1 {
 
 .correct {
     background-position:top;
+}
+
+  
+@media (max-width: 600px) {
+    .box {
+        height: 10vw;
+    }
 }
