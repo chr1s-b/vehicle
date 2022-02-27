@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 const regs = ["SL08CFO","MA66XME","KP65NNT","WU63YZV","AE51VRR","OY20ZKS","YX67VDJ","YT70FON","GJ13BUE","KW69JTU","VE60JYY","YG60MFN","YE18TBV","DU64MYY","GN03UYG","KS09FJF","NL03EHM","GL11ZBP"]
 
 function selectReg() {
-    var day = Math.floor(+new Date() / 86400);
+    var day = Math.floor(+new Date() / 86400000);
     return regs[day % regs.length];
 }
 
