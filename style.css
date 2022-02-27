@@ -3,14 +3,10 @@
 html {height:100%} 
 
 body {
-  min-height: 481px ;
-
-	font-family: 'Roboto Slab', serif;
-  max-width: 792px;
-	margin: 0 auto;
-	line-height: 1.2rem;
-	color: #DDDDDD;
-	background-color: black;
+    font-family: 'Roboto Slab', serif;
+    line-height: 1.2rem;
+    color: #DDDDDD;
+    background-color: black;
     padding: 0;
     margin: 0;
     height: 100%;
@@ -18,158 +14,45 @@ body {
 }
 
 .title {
-  position: absolute;
-  top:8%;
-	text-align: center;
-  margin:0;
-  padding: 0;
-  width: 100%;
+    text-align: center;
+    margin: 10px auto;
 }
 
 h1 {
 	font-size: 3rem;
-  width: 100%;
-	line-height: 1.6rem;
-  margin: auto 0;
+    line-height: 1.6rem;
 }
 
 .game{
-    height:70%;
-    max-height: 100%;
-    width:40%;
     text-align: center;
-    margin: auto;
-    margin-left:10%;
-    position: absolute;
-    left: 0; 
-    top:15%;
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
+    display: block;
     text-overflow: visible;
-    background-color: transparent;
-    
-    padding:0%;
 }
-.box{
-    background-color: #29292b;
 
-    width: 12%;
-    height: 88%;
-    max-width: 12%;
-    min-height: 88%;
-    min-width: 12%;
-    max-height: 88%;
-    position:relative;
-    display:inline-block ;
-    text-overflow: visible;
-    vertical-align: middle;
-    margin-top: 1%;
-    margin-left:0.1em;
-    text-align: center;
-  }
-  .game-row{
-    background-color: transparent;
-    width: 80%;
-    position:relative;
-    height:14%;
-    margin:auto;
-    padding: 0%;
+.game-row{
     text-align: center;
     vertical-align:middle;
   }
+
+.box{
+    background-color: #29292b;
+    height: 8vh;
+    display: inline-table;
+    overflow: visible;
+    vertical-align: middle;
+    margin: 4px;
+    text-align: center;
+    aspect-ratio: 1/1;
+    font-size: 2em;
+    font-weight: 500;
+  }
   
   .submitted-letter{
-    font-size: 200%;
-    text-align:center;
+    text-align:center; 
     vertical-align: middle;
-    line-height: 100%;  
-    overflow: hidden;
-    margin-top: 10%;
+    display: table-cell;  
   }
   
-  @media (max-width:750px) {
-    .body{
-      min-height: 481px ;
-
-    }
-
-    .title {
-      position: absolute;
-      top:8%;
-      text-align: center;
-      margin:0;
-    
-      width: 100%;
-    }
-    
-    h1 {
-      font-size: 3rem;
-      width: 100%;
-      line-height: 1.6rem;
-      margin: auto 0;
-    }
-    
-    .game{
-      background-color: aquamarine;
-        height:100%;
-        max-height: 100%;
-        min-height: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        width: 100%;
-        text-align: center;
-        margin: auto;
-        margin-left:10%;
-        position: absolute;
-        left: 0; 
-        top:15%;
-        right: 0; 
-        margin-left: auto; 
-        margin-right: auto; 
-        text-overflow: visible;
-        background-color: transparent;
-        
-        padding:0%;
-    }
-    .box{
-        background-color: #29292b;
-    
-        width: 12%;
-        height: 88%;
-        max-width: 12%;
-        min-height: 88%;
-        min-width: 12%;
-        max-height: 88%;
-        position:relative;
-        display:inline-block ;
-        text-overflow: visible;
-        vertical-align: middle;
-        margin-top: 1%;
-        margin-left:0.1em;
-        text-align: center;
-      }
-      .game-row{
-        background-color: transparent;
-        width: 80%;
-        position:relative;
-        height:14%;
-        margin:auto;
-        padding: 0%;
-        text-align: center;
-        vertical-align:middle;
-      }
-    
-  }
-
-  @media (max-height:481px){
-    body{
-      min-height: 481px;
-      height: 481px;
-    }
-
-  }
-
 #overlay {
     position: fixed;
     display: none;
@@ -205,7 +88,7 @@ h1 {
 /* tile animations */
 
 .box {
-  background: linear-gradient(to bottom, green calc(100% / 3), gray calc(100% / 3) calc(200% / 3), yellow calc(200% / 3) 100%);
+  background: linear-gradient(to bottom, #538d4e calc(100% / 3), #3a3a3c calc(100% / 3) calc(200% / 3), #b59f3b calc(200% / 3) 100%);
   background-size: 100% 300%;
   transition: all 0.3s ease;
   background-position: center;
@@ -217,4 +100,11 @@ h1 {
 
 .correct {
     background-position:top;
+}
+
+  
+@media (max-width: 600px) {
+    .box {
+        height: 10vw;
+    }
 }
