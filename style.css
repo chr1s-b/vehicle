@@ -87,13 +87,6 @@ h1 {
     overflow: hidden;
     margin-top: 10%;
   }
-
-  .correct{
-    background-color: wheat;
-  }
-  .present{
-    background-color: cornflowerblue;
-  }
   
   @media (max-width:750px) {
     .body{
@@ -207,4 +200,21 @@ h1 {
     border-radius: 5px;
     line-height: 1.2rem;
     text-align: center;
+}
+
+/* tile animations */
+
+.box {
+  background: linear-gradient(to bottom, green calc(100% / 3), gray calc(100% / 3) calc(200% / 3), yellow calc(200% / 3) 100%);
+  background-size: 100% 300%;
+  transition: all 0.3s ease;
+  background-position: center;
+}
+
+.present { 
+  background-position:bottom;
+}
+
+.correct {
+    background-position:top;
 }
