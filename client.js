@@ -1,5 +1,5 @@
-const evaluatorEndpoint = 'http://vehiclegame.herokuapp.com/guess';
-const imgEndpoint='http://vehiclegame.herokuapp.com/image'
+const evaluatorEndpoint = 'https://vehiclegame.herokuapp.com/guess';
+const imgEndpoint='https://vehiclegame.herokuapp.com/image'
 
 var currentRow=1;
 currentLetter=1;
