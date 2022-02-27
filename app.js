@@ -59,7 +59,7 @@ app.post('/guess', (req, res) => {
     res.send(hint.join(''));
 })
 
-app.post('/image',(req,req)=>{
+app.post('/image',(req,res)=>{
     res.send(selectImg())
 });
 
